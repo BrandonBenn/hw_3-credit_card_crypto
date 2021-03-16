@@ -18,13 +18,8 @@ class CreditCard
 
   # returns json string
   def to_json(_)
-    {
-      # TODO: setup the hash with all instance vairables to serialize into json
-      owner: @owner,
-      number: @number,
-      expiration_date: @expiration_date,
-      credit_network: @credit_network
-    }.to_json
+    # TODO: setup the hash with all instance vairables to serialize into json
+    hash.to_json
   end
 
   # returns all card information as single string
