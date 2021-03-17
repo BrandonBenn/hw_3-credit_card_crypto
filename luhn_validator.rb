@@ -9,13 +9,8 @@ module LuhnValidator
 
     # TODO: use the integers in nums_a to validate its last check digit
     ((nums_a.reverse.map.with_index do |digit, index|
-        (((index % 2).zero? ? 1 : 2) * digit)
-          .to_s
-          .chars
-          .map(&:to_i)
-          .sum
-      end)
-       .sum % 10)
-      .zero?
+        ((index.odd? ? 2 : 1) * digit)
+          .to_s.chars.map(&:to_i).sum
+      end).sum.modulo(10)).zero?
   end
 end
